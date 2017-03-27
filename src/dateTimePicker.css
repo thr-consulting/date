@@ -1,0 +1,16 @@
+.rw-datetimepicker > input {
+	border: none !important;
+}
+
+.rw-datetimepicker .rw-calendar-grid.rw-nav-view .rw-btn {
+	padding: 0 !important;
+}
+
+.dateTimePickerAutoWidth {
+	width: auto;
+	display: inline-flex;
+}
+
+.dateTimePickerAutoWidth > input {
+	width: auto;
+}
