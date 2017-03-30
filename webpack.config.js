@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var nodeExternals = require('webpack-node-externals');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const root = path.resolve(__dirname);
 
@@ -32,22 +33,37 @@ module.exports = {
 					}
 				],
 			},
-			// {
-			// 	test: /\.css$/,
-			// 	use: [{loader: 'style-loader'}, {loader: 'css-loader'}],
-			// 	include: path.resolve(root, 'src'),
-			// },
-			// {
-			// 	test: /\.less$/,
-			// 	use: [{loader: 'style-loader'}, {loader: 'css-loader'}, {loader: 'less-loader'}],
-			// }
+			{
+				test: /\.css$/,
+				// include: path.resolve(root, 'src'),
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader']
+				}),
+			},
+			{
+				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)(\?[a-z0-9=\.]+)?$/,
+				use: [{loader: 'url-loader', query: {limit: 10000}}]
+			},
+			{
+				test: /\.less$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'less-loader']
+				}),
+			},
 		]
 	},
 	plugins: [
-		// new webpack.optimize.UglifyJsPlugin({
-		// 	compress: {
-		// 		warnings: false,
-		// 	},
-		// }),
+		new ExtractTextPlugin({
+			filename: 'index.css',
+			disable: false,
+			allChunks: true,
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				warnings: false,
+			},
+		}),
 	]
 };

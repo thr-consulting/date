@@ -1,6 +1,24 @@
 import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
-import {SSelect} from 'controls';
+import {Select} from 'semantic-ui-react';
+import debug from 'debug';
+
+const d = debug('date:MonthSelect');
+
+const monthOptions = [
+	{text: 'January', value: 0},
+	{text: 'February', value: 1},
+	{text: 'March', value: 2},
+	{text: 'April', value: 3},
+	{text: 'May', value: 4},
+	{text: 'June', value: 5},
+	{text: 'July', value: 6},
+	{text: 'August', value: 7},
+	{text: 'September', value: 8},
+	{text: 'October', value: 9},
+	{text: 'November', value: 10},
+	{text: 'December', value: 11},
+];
 
 /**
  * Month select dropdown
@@ -21,11 +39,12 @@ export default class MonthSelect extends Component {
 		year: new Date().getFullYear(),
 	};
 
-	handleChange = value => {
+	handleChange = (e, value) => {
+		d('Month changed to:', value.value, e);
 		if (value !== '') {
 			this.props.onChange(moment({
 				year: this.props.year,
-				month: parseInt(value, 10),
+				month: parseInt(value.value, 10),
 			}).toDate());
 		} else {
 			this.props.onChange(null);
@@ -36,21 +55,7 @@ export default class MonthSelect extends Component {
 		const {value} = this.props;
 
 		return (
-			<SSelect onChange={this.handleChange} value={value ? value.getMonth() : ''}>
-				<option value="">Select Month</option>
-				<option value="0">January</option>
-				<option value="1">February</option>
-				<option value="2">March</option>
-				<option value="3">April</option>
-				<option value="4">May</option>
-				<option value="5">June</option>
-				<option value="6">July</option>
-				<option value="7">August</option>
-				<option value="8">September</option>
-				<option value="9">October</option>
-				<option value="10">November</option>
-				<option value="11">December</option>
-			</SSelect>
+			<Select placeholder="Select Month" options={monthOptions} value={value ? value.getMonth() : ''} onChange={this.handleChange}/>
 		);
 	}
 }

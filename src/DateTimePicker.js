@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
-// import 'react-widgets/lib/less/react-widgets.less';
 import DTPicker from 'react-widgets/lib/DateTimePicker';
-// import './dateTimePicker.css';
+import './dateTimePicker.less';
 
 /**
  * DateTimePicker from {@link https://jquense.github.io/react-widgets/docs/#/datetime-picker|React Widgets}.

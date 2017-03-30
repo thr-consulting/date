@@ -1,9 +1,14 @@
+import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import moment from 'moment';
 import transform from 'lodash/transform';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 import map from 'lodash/map';
 import isDate from 'lodash/isDate';
+
+export function dateInit() {
+	momentLocalizer(moment);
+}
 
 /**
  * Transforms a moment or array of moments to JS Dates

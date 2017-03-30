@@ -10,14 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com"
+    "url": "https://github.com/thr-consulting/date.git"
   },
   "keywords": [
     "react",
-    "controls"
+    "controls",
+	  "date",
+	  "moment"
   ],
   "author": "Mike Kornelson <mike@durbn.net>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
@@ -26,25 +28,34 @@
     "babel-preset-stage-1": "^6.22.0",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
+    "cheerio": "^0.22.0",
+    "css-loader": "^0.27.3",
     "enzyme": "^2.7.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
     "jsdom": "^9.12.0",
     "jsdom-global": "^2.1.1",
+	  "less": "^2.7.2",
+    "less-loader": "^4.0.2",
     "mocha": "^3.2.0",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
+	  "semantic-ui-react": "^0.67.1",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-node-externals": "^1.5.4"
   },
   "peerDependencies": {
-    "react": "15.x"
+    "react": "15.x",
+    "semantic-ui-react": "0.67.x"
   },
   "dependencies": {
     "controls": "^0.1.1",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "react-widgets": "^3.4.6",
-    "semantic-ui-react": "^0.67.1",
     "yup": "^0.21.3"
   }
 }
