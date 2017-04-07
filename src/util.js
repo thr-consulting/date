@@ -5,9 +5,30 @@ import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 import map from 'lodash/map';
 import isDate from 'lodash/isDate';
+import {LocalDate} from 'js-joda';
 
 export function dateInit() {
 	momentLocalizer(moment);
+}
+
+export function transformDateToLocalDate(date) {
+	return LocalDate.of(date.getFullYear(), date.getMonth() + 1, date.getDate());
+}
+
+export function transformLocalDateToDate(localDate) {
+	return new Date(localDate.year(), localDate.monthValue() - 1, localDate.dayOfMonth());
+}
+
+export function transformMomentToLocalDate(obj) {
+	return LocalDate.of(obj.year(), obj.month() + 1, obj.date());
+}
+
+export function transformLocalDateToMoment(localDate) {
+	return moment({
+		year: localDate.year(),
+		month: localDate.monthValue() - 1,
+		day: localDate.dayOfMonth(),
+	});
 }
 
 /**
