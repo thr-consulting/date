@@ -42,9 +42,9 @@ export default class LocalMonthSelect extends Component {
 	handleChange = (e, value) => {
 		d('Month changed to:', value.value, e);
 		if (value !== '') {
-			this.props.onChange(LocalDate.of(this.props.year, parseInt(value, 10), 1));
+			if (this.props.onChange) this.props.onChange(LocalDate.of(this.props.year, parseInt(value.value, 10), 1));
 		} else {
-			this.props.onChange(null);
+			if (this.props.onChange) this.props.onChange(null);
 		}
 	}
 
