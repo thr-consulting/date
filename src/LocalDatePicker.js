@@ -1,9 +1,8 @@
 import React, {Component, PropTypes} from 'react';
-import 'react-widgets/lib/less/react-widgets.less';
 import {default as DTPicker} from 'react-widgets/lib/DateTimePicker';
 import omit from 'lodash/omit';
 import TPropTypes from 'tproptypes';
-import './dateTimePicker.css';
+import './dateTimePicker.less';
 import {transformLocalDateToDate, transformDateToLocalDate} from './util';
 
 export default class LocalDatePicker extends Component {
