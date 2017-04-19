@@ -6,12 +6,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const root = path.resolve(__dirname);
 
 module.exports = {
-	entry: './src/index.js',
+	entry: './lib/index.js',
 	target: 'node',
 	devtool: 'source-map',
 	externals: [nodeExternals()],
 	output: {
-		path: path.resolve(root, 'lib'),
+		path: path.resolve(root, 'dist'),
 		filename: "index.js",
 		library: "date",
 		libraryTarget: "umd"
@@ -36,7 +36,6 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				// include: path.resolve(root, 'src'),
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: ['css-loader']

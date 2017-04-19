@@ -1,12 +1,11 @@
 {
 	"name": "date",
-	"version": "0.1.8",
+	"version": "0.1.9",
 	"description": "Date controls and utils",
-	"main": "lib/index.js",
+	"main": "dist/index.js",
 	"scripts": {
 		"build": "webpack --config webpack.config.js",
-		"build:demo": "webpack --config webpack.demo.js",
-		"demo": "cd demo && python -m SimpleHTTPServer 8000",
+		"demo": "react-scripts start",
 		"prepublish": "npm run build",
 		"test": "npm run build && mocha --compilers js:babel-core/register"
 	},
@@ -32,7 +31,7 @@
 		"chai-enzyme": "^0.6.1",
 		"cheerio": "^0.22.0",
 		"css-loader": "^0.28.0",
-		"enzyme": "^2.8.0",
+		"enzyme": "^2.8.2",
 		"extract-text-webpack-plugin": "^2.1.0",
 		"file-loader": "^0.11.1",
 		"jsdom": "^9.12.0",
@@ -40,24 +39,27 @@
 		"less": "^2.7.2",
 		"less-loader": "^4.0.3",
 		"mocha": "^3.2.0",
-		"react": "^15.4.2",
-		"react-addons-test-utils": "^15.4.2",
-		"react-dom": "^15.4.2",
-		"semantic-ui-react": "^0.67.2",
+		"react": "^15.5.4",
+		"react-addons-test-utils": "^15.5.1",
+		"react-dom": "^15.5.4",
+		"react-formal": "^0.24.3",
+		"react-scripts": "^0.9.5",
+		"semantic-ui-react": "^0.68.0",
 		"style-loader": "^0.16.1",
 		"url-loader": "^0.5.8",
-		"webpack": "^2.3.3",
+		"webpack": "^2.4.1",
 		"webpack-node-externals": "^1.5.4"
 	},
 	"peerDependencies": {
-		"react": "15.x",
-		"semantic-ui-react": "0.67.x"
+		"react": "^15.5.0",
+		"semantic-ui-react": "^0.68.0"
 	},
 	"dependencies": {
-		"controls": "^0.1.4",
+		"controls": "^0.1.7",
 		"js-joda": "^1.5.1",
 		"lodash": "^4.17.4",
 		"moment": "^2.18.1",
+		"prop-types": "^15.5.8",
 		"react-widgets": "^3.4.6",
 		"yup": "^0.21.3"
 	}
