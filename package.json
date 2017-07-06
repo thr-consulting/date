@@ -64,6 +64,7 @@
     "jsdoc-babel": "^0.3.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
+    "precommit-hook-eslint": "^3.0.0",
     "react": "^15.6.1",
     "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.6.1",
@@ -91,5 +92,10 @@
     "react-flow-types": "^0.1.1",
     "react-widgets": "^3.4.8",
     "yup": "^0.21.3"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "flow",
+    "test"
+  ]
 }
