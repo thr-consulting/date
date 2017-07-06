@@ -1,11 +1,27 @@
+// @flow
+
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {default as DTPicker} from 'react-widgets/lib/DateTimePicker';
+import DTPicker from 'react-widgets/lib/DateTimePicker';
 import omit from 'lodash/omit';
 import TPropTypes from 'tproptypes';
 import './dateTimePicker.less';
 import {transformLocalDateToDate, transformDateToLocalDate} from './util';
 
+/**
+ * Let's you pick a LocalDate. No time parts are recorded.
+ * @class
+ * @property width
+ * @property value
+ * @property defaultValue
+ * @property onChange
+ * @property onSelect
+ * @property min
+ * @property max
+ * @property currentDate
+ * @property defaultCurrentDate
+ * @property onCurrentDateChange
+ */
 export default class LocalDatePicker extends Component {
 	static propTypes = {
 		width: PropTypes.string,
@@ -20,15 +36,15 @@ export default class LocalDatePicker extends Component {
 		onCurrentDateChange: PropTypes.func,
 	};
 
-	handleChange = date => {
+	handleChange = (date: Date) => {
 		if (this.props.onChange) this.props.onChange(date ? transformDateToLocalDate(date) : null);
 	}
 
-	handleSelect = date => {
+	handleSelect = (date: Date) => {
 		if (this.props.onSelect) this.props.onSelect(date ? transformDateToLocalDate(date) : null);
 	}
 
-	handleCurrentDateChange = date => {
+	handleCurrentDateChange = (date: Date) => {
 		if (this.props.onCurrentDateChange) this.props.onCurrentDateChange(date ? transformDateToLocalDate(date) : null);
 	}
 
@@ -52,20 +68,20 @@ export default class LocalDatePicker extends Component {
 			extraClasses = 'dateTimePickerAutoWidth';
 		}
 
-		const _value = value ? transformLocalDateToDate(value) : null;
-		const _defaultValue = defaultValue ? transformLocalDateToDate(value) : null;
-		const _min = min ? transformLocalDateToDate(min) : null;
-		const _max = max ? transformLocalDateToDate(max) : null;
-		const _currentDate = currentDate ? transformLocalDateToDate(currentDate) : null;
-		const _defaultCurrentDate = currentDate ? transformLocalDateToDate(defaultCurrentDate) : null;
+		const ldpValue = value ? transformLocalDateToDate(value) : null;
+		const ldpDefaultValue = defaultValue ? transformLocalDateToDate(value) : null;
+		const ldpMin = min ? transformLocalDateToDate(min) : null;
+		const ldpMax = max ? transformLocalDateToDate(max) : null;
+		const ldpCurrentDate = currentDate ? transformLocalDateToDate(currentDate) : null;
+		const ldpDefaultCurrentDate = currentDate ? transformLocalDateToDate(defaultCurrentDate) : null;
 
 		const newProps = {};
-		if (_value) newProps.value = _value;
-		if (_defaultValue) newProps.defaultValue = _defaultValue;
-		if (_min) newProps.min = _min;
-		if (_max) newProps.max = _max;
-		if (_currentDate) newProps.currentDate = _currentDate;
-		if (_defaultCurrentDate) newProps.defaultCurrentDate = _defaultCurrentDate;
+		if (ldpValue) newProps.value = ldpValue;
+		if (ldpDefaultValue) newProps.defaultValue = ldpDefaultValue;
+		if (ldpMin) newProps.min = ldpMin;
+		if (ldpMax) newProps.max = ldpMax;
+		if (ldpCurrentDate) newProps.currentDate = ldpCurrentDate;
+		if (ldpDefaultCurrentDate) newProps.defaultCurrentDate = ldpDefaultCurrentDate;
 		if (onCurrentDateChange) newProps.onCurrentDateChange = this.handleCurrentDateChange;
 		if (onChange) newProps.onChange = this.handleChange;
 		if (onSelect) newProps.onSelect = this.handleSelect;

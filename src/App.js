@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Grid, Header, Form, Segment} from 'semantic-ui-react';
 import {LocalDate} from 'js-joda';
-import {LocalMonthSelect} from '../dist';
+import {LocalMonthSelect} from './lib';
 
 class App extends Component {
 	state = {
@@ -22,29 +22,29 @@ class App extends Component {
 		this.setState({datetimepicker: v});
 	};
 
-  render() {
-    return (
-    	<Grid container>
-		    <Grid.Row>
-			    <Grid.Column>
-				    <Header as="h1">Date Demo</Header>
-			    </Grid.Column>
-		    </Grid.Row>
-		    <Grid.Row>
-			    <Grid.Column>
-				    <Segment>
-					    <Form>
-						    <Form.Field>
-							    <label>LocalMonthSelect</label>
-							    <LocalMonthSelect onChange={this.handleLocalMonthSelect} value={this.state.localmonth}/>
-						    </Form.Field>
-					    </Form>
-				    </Segment>
-			    </Grid.Column>
-		    </Grid.Row>
-	    </Grid>
-    );
-  }
+	render() {
+		return (
+			<Grid container>
+				<Grid.Row>
+					<Grid.Column>
+						<Header as="h1">Date Demo</Header>
+					</Grid.Column>
+				</Grid.Row>
+				<Grid.Row>
+					<Grid.Column>
+						<Segment>
+							<Form>
+								<Form.Field>
+									<label>LocalMonthSelect</label>
+									<LocalMonthSelect onChange={this.handleLocalMonthSelect} value={this.state.localmonth}/>
+								</Form.Field>
+							</Form>
+						</Segment>
+					</Grid.Column>
+				</Grid.Row>
+			</Grid>
+		);
+	}
 }
 
 export default App;

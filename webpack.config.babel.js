@@ -1,20 +1,19 @@
-var webpack = require('webpack');
-var path = require('path');
-var nodeExternals = require('webpack-node-externals');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+import path from 'path';
+import nodeExternals from 'webpack-node-externals';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const root = path.resolve(__dirname);
 
 module.exports = {
-	entry: './lib/index.js',
+	entry: './src/lib/index.js',
 	target: 'node',
 	devtool: 'source-map',
 	externals: [nodeExternals()],
 	output: {
 		path: path.resolve(root, 'dist'),
-		filename: "index.js",
-		library: "date",
-		libraryTarget: "umd"
+		filename: 'index.js',
+		library: 'date',
+		libraryTarget: 'umd',
 	},
 	module: {
 		rules: [
@@ -29,31 +28,31 @@ module.exports = {
 							presets: [
 								['es2015', {loose: true, modules: false}],
 								'stage-1',
-								'react'
-							]
-						}
-					}
+								'react',
+							],
+						},
+					},
 				],
 			},
 			{
 				test: /\.css$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
-					use: ['css-loader']
+					use: ['css-loader'],
 				}),
 			},
 			{
-				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)(\?[a-z0-9=\.]+)?$/,
-				use: [{loader: 'url-loader', query: {limit: 10000}}]
+				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)(\?[a-z0-9=.]+)?$/,
+				use: [{loader: 'url-loader', query: {limit: 10000}}],
 			},
 			{
 				test: /\.less$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
-					use: ['css-loader', 'less-loader']
+					use: ['css-loader', 'less-loader'],
 				}),
 			},
-		]
+		],
 	},
 	plugins: [
 		new ExtractTextPlugin({
@@ -67,5 +66,5 @@ module.exports = {
 		// 	},
 		// 	sourceMap: true,
 		// }),
-	]
+	],
 };

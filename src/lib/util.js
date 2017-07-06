@@ -7,22 +7,45 @@ import map from 'lodash/map';
 import isDate from 'lodash/isDate';
 import {LocalDate} from 'js-joda';
 
+/**
+ * Initializes the date-time pickers
+ */
 export function dateInit() {
 	momentLocalizer(moment);
 }
 
+/**
+ * Transforms a JS Date to a LocalDate
+ * @param date
+ * @returns {LocalDate}
+ */
 export function transformDateToLocalDate(date) {
 	return LocalDate.of(date.getFullYear(), date.getMonth() + 1, date.getDate());
 }
 
+/**
+ * Transforms a LocalDate to a JS Date
+ * @param localDate
+ * @returns {Date}
+ */
 export function transformLocalDateToDate(localDate) {
 	return new Date(localDate.year(), localDate.monthValue() - 1, localDate.dayOfMonth());
 }
 
+/**
+ * Transforms a Moment to a LocalDate
+ * @param obj
+ * @returns {LocalDate}
+ */
 export function transformMomentToLocalDate(obj) {
 	return LocalDate.of(obj.year(), obj.month() + 1, obj.date());
 }
 
+/**
+ * Transforms a LocalDate to a Moment
+ * @param localDate
+ * @returns {*|moment.Moment}
+ */
 export function transformLocalDateToMoment(localDate) {
 	return moment({
 		year: localDate.year(),
@@ -33,7 +56,6 @@ export function transformLocalDateToMoment(localDate) {
 
 /**
  * Transforms a moment or array of moments to JS Dates
- * @memberOf module:addons/date
  * @param {moment|moment[]} obj - Moment or array of Moments
  * @return {Date|Date[]} A single date or array of dates
  */
@@ -54,7 +76,6 @@ export function transformMomentsToDate(obj) {
 
 /**
  * Transforms a date or array of dates to moments
- * @memberOf module:addons/date
  * @param {date|date[]} obj - Date or array of Dates
  * @return {moment|moment[]} A single moment or array of moments
  */
@@ -73,8 +94,7 @@ export function transformDatesToMoment(obj) {
 
 /**
  * Formats a date to a predefined style
- * @memberOf module:addons/date
- * @method formatDate
+  * @method formatDate
  * @param {Date|moment} obj - The date or moment object
  * @param {string} [type=short] options.type - short, medium, or long
  * @param {bool} [time=false] options.time - If true, displays the time

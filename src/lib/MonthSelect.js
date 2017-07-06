@@ -1,3 +1,5 @@
+// @flow
+
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -24,7 +26,6 @@ const monthOptions = [
 /**
  * Month select dropdown
  * @class
- * @memberOf module:addons/date
  * @property {onChange} onChange - Called when the value changes.
  * @property {Date} value - The value in date form. Day is ignored.
  * @property {number} [year=Current Year] - The year to use when selecting a date.
@@ -40,7 +41,7 @@ export default class MonthSelect extends Component {
 		year: new Date().getFullYear(),
 	};
 
-	handleChange = (e, value) => {
+	handleChange = (e: Object, value: Object) => {
 		d('Month changed to:', value.value, e);
 		if (value !== '') {
 			this.props.onChange(moment({

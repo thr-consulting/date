@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date transforms should transform a JS date to a LocalDate 1`] = `"2017-06-23"`;
+
+exports[`Date transforms should transform a LocalDate to a Date 1`] = `2017-06-23T05:00:00.000Z`;
+
+exports[`Date transforms should transform a LocalDate to a Moment 1`] = `2017-06-23T05:00:00.000Z`;
+
+exports[`Date transforms should transform a Moment to a LocalDate 1`] = `"2017-06-23"`;
+
+exports[`Date transforms should transform a single JS Date to a single Moment 1`] = `2017-06-23T11:00:00.000Z`;
+
+exports[`Date transforms should transform an array of JS Dates to an array of Moments 1`] = `
+Array [
+  2017-06-23T11:00:00.000Z,
+  2010-11-05T15:05:06.000Z,
+]
+`;
+
+exports[`Date transforms should transform an array of Moments to an array of JS Dates 1`] = `
+Array [
+  2017-06-23T11:00:00.000Z,
+  2010-11-05T15:05:06.000Z,
+]
+`;
+
+exports[`Date transforms should transform an object with JS Date fields to the same object with Moments 1`] = `
+Object {
+  "field1": 2017-06-23T11:00:00.000Z,
+  "field2": 2010-11-05T15:05:06.000Z,
+}
+`;
+
+exports[`Date transforms should transform an object with Moment fields to the same object with JS Dates 1`] = `
+Object {
+  "field1": 2017-06-23T11:00:00.000Z,
+  "field2": 2010-11-05T15:05:06.000Z,
+}
+`;
+
+exports[`Formatting should format with defaults 1`] = `"6/23/2017"`;
+
+exports[`Formatting should format with options 1`] = `"6/23/2017 6:00 am"`;
+
+exports[`Formatting should format with options 2`] = `"Jun 23, 2017 6:00 am"`;
+
+exports[`Formatting should format with options 3`] = `"June 23, 2017 6:00 am"`;
+
+exports[`Formatting should use a custom date format 1`] = `"June_23_2017_6_00_am"`;

@@ -1,3 +1,5 @@
+// @flow
+
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Select} from 'semantic-ui-react';
@@ -24,7 +26,6 @@ const monthOptions = [
 /**
  * Month select dropdown
  * @class
- * @memberOf module:addons/date
  * @property {onChange} onChange - Called when the value changes.
  * @property {Date} value - The value in date form. Day is ignored.
  * @property {number} [year=Current Year] - The year to use when selecting a date.
@@ -40,12 +41,14 @@ export default class LocalMonthSelect extends Component {
 		year: LocalDate.now().year(),
 	};
 
-	handleChange = (e, value) => {
+	handleChange = (e: Object, value: Object) => {
 		d('Month changed to:', value.value, e);
-		if (value !== '') {
-			if (this.props.onChange) this.props.onChange(LocalDate.of(this.props.year, parseInt(value.value, 10), 1));
-		} else {
-			if (this.props.onChange) this.props.onChange(null);
+		if (this.props.onChange) {
+			if (value !== '') {
+				this.props.onChange(LocalDate.of(this.props.year, parseInt(value.value, 10), 1));
+			} else {
+				this.props.onChange(null);
+			}
 		}
 	}
 

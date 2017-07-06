@@ -1,7 +1,3 @@
-/**
- * Date Addons module
- * @module module:addons/date
- */
 import DateTimePicker from './DateTimePicker';
 import LocalDatePicker from './LocalDatePicker';
 import MonthSelect from './MonthSelect';
@@ -14,7 +10,7 @@ import {
 	transformLocalDateToDate,
 	transformLocalDateToMoment,
 	transformMomentToLocalDate,
-	dateInit
+	dateInit,
 } from './util';
 
 export {
