@@ -1,4 +1,4 @@
-import momentLocalizer from 'react-widgets/lib/localizers/moment';
+import momentLocalizer from 'react-widgets-moment';
 import moment from 'moment';
 import transform from 'lodash/transform';
 import isArray from 'lodash/isArray';
@@ -11,7 +11,7 @@ import {LocalDate} from 'js-joda';
  * Initializes the date-time pickers
  */
 export function dateInit() {
-	momentLocalizer(moment);
+	momentLocalizer();
 }
 
 /**
@@ -94,8 +94,8 @@ export function transformDatesToMoment(obj) {
 
 /**
  * Formats a date to a predefined style
-  * @method formatDate
- * @param {Date|moment} obj - The date or moment object
+ * @method formatDate
+ * @param {Date|moment|LocalDate} obj - The date or moment object or LocalDate object
  * @param {string} [type=short] options.type - short, medium, or long
  * @param {bool} [time=false] options.time - If true, displays the time
  * @param {bool} [date=true] options.date - If true, displays the date
@@ -103,7 +103,10 @@ export function transformDatesToMoment(obj) {
  * @return {string} The formatted date/time
  */
 export function formatDate(obj, {type: type = 'short', time: time = false, date: date = true, format} = {type: 'short'}) {
-	const m = moment.isMoment(obj) ? obj : moment(obj);
+	let m = obj;
+	if (m instanceof LocalDate) m = transformLocalDateToMoment(m);
+	if (m instanceof Date) m = moment(m);
+	if (!moment.isMoment(m)) throw new Error('formatDate requires a Date, LocalDate or Moment object to be passed as the first parameter.');
 	let dateFormat;
 	let timeFormat;
 	switch (type || 'short') {

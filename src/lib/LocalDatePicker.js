@@ -4,8 +4,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import DTPicker from 'react-widgets/lib/DateTimePicker';
 import omit from 'lodash/omit';
-import TPropTypes from 'tproptypes';
-import './dateTimePicker.less';
+import TPropTypes from '@thx/tproptypes';
+import './dateTimePicker.css';
 import {transformLocalDateToDate, transformDateToLocalDate} from './util';
 
 /**

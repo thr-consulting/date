@@ -46,13 +46,6 @@ module.exports = {
 				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)(\?[a-z0-9=.]+)?$/,
 				use: [{loader: 'url-loader', query: {limit: 10000}}],
 			},
-			{
-				test: /\.less$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader', 'less-loader'],
-				}),
-			},
 		],
 	},
 	plugins: [

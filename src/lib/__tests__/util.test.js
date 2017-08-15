@@ -12,7 +12,7 @@ import {
 	formatDate,
 } from '../util';
 
-jest.mock('react-widgets/lib/localizers/moment');
+jest.mock('react-widgets-moment');
 
 expect.addSnapshotSerializer({
 	test: v => moment.isMoment(v),
@@ -25,7 +25,7 @@ expect.addSnapshotSerializer({
 
 describe('Date initialization', () => {
 	it('should call the moment localizer', () => {
-		const momentLocalizer = require('react-widgets/lib/localizers/moment');
+		const momentLocalizer = require('react-widgets-moment');
 		dateInit();
 		expect(momentLocalizer.mock.calls.length).toBe(1);
 	});
