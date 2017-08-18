@@ -55,7 +55,7 @@
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jest": "^20.0.3",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.2.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
@@ -70,7 +70,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-formal": "^0.25.4",
-    "react-scripts": "^1.0.10",
+    "react-scripts": "1.0.10",
     "react-test-renderer": "^15.6.1",
     "semantic-ui-react": "^0.71.0",
     "style-loader": "^0.18.2",
@@ -94,6 +94,12 @@
     "react-widgets": "^4.0.0-rc.16",
     "react-widgets-moment": "^4.0.0-rc.15",
     "yup": "^0.21.3"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "eslint-plugin-jsx-a11y",
+      "react-scripts"
+    ]
   },
   "pre-commit": [
     "lint",
