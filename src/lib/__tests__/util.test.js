@@ -9,6 +9,9 @@ import {
 	transformLocalDateToMoment,
 	transformMomentsToDate,
 	transformDatesToMoment,
+	transformLocalDatesToEpochInteger,
+	transformEpochIntegerToLocalDate,
+	mapEpochIntegerToLocalDates,
 	formatDate,
 } from '../util';
 
@@ -130,6 +133,42 @@ describe('Date transforms', () => {
 		expect(val.field2.date()).toBe(5);
 		expect(val.field2.month()).toBe(10);
 		expect(val.field2.year()).toBe(2010);
+	});
+
+	it('should transform an object with LocalDates to the same object with Epoch Integers', () => {
+		const val = transformLocalDatesToEpochInteger({
+			field1: LocalDate.ofEpochDay(17400),
+			field2: LocalDate.ofEpochDay(13000),
+		});
+		expect(val.field1).toBe(17400);
+		expect(val.field2).toBe(13000);
+	});
+
+	it('should transform an epoch integer into a LocalDate', () => {
+		const val = transformEpochIntegerToLocalDate(17400);
+		expect(val.dayOfMonth()).toBe(22);
+		expect(val.monthValue()).toBe(8);
+		expect(val.year()).toBe(2017);
+	});
+
+	it('should map epoch integers into LocalDates', () => {
+		const src1 = {
+			field1: 17400,
+			field2: {subField2: 17400, subField3: 13000},
+			field3: [17400, 13000],
+			field4: [17400, 13000],
+			field5: [{a: 17400, b: 17400}, {a: 13000, b: 13000}],
+			field6: [{a: [{b: [17400, 13000]}]}],
+		};
+		const val = mapEpochIntegerToLocalDates(src1, [
+			'field1',
+			'field2.subField2',
+			'field3',
+			'field5.a',
+			'field6.a.b',
+		]);
+		expect(val.field1).toBeInstanceOf(LocalDate);
+		expect(val).toMatchSnapshot();
 	});
 });
 

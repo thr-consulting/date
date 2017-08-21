@@ -1,5 +1,3 @@
-// @flow
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Select} from 'semantic-ui-react';
@@ -41,7 +39,7 @@ export default class LocalMonthSelect extends Component {
 		year: LocalDate.now().year(),
 	};
 
-	handleChange = (e: Object, value: Object) => {
+	handleChange = (e, value) => {
 		d('Month changed to:', value.value, e);
 		if (this.props.onChange) {
 			if (value !== '') {

@@ -3,9 +3,11 @@ import moment from 'moment';
 import transform from 'lodash/transform';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
+import isInteger from 'lodash/isInteger';
 import map from 'lodash/map';
 import isDate from 'lodash/isDate';
 import {LocalDate} from 'js-joda';
+import indexOf from 'lodash/indexOf';
 
 /**
  * Initializes the date-time pickers
@@ -91,6 +93,58 @@ export function transformDatesToMoment(obj) {
 	}
 	return obj;
 }
+
+/**
+ * Transforms anything that is a LocalDate into epoch integer's. Iterates over arrays and object keys.
+ * @param obj
+ * @returns {*}
+ */
+export function transformLocalDatesToEpochInteger(obj) {
+	if (obj instanceof LocalDate) return obj.toEpochDay();
+	if (isArray(obj)) {
+		return map(obj, v => transformLocalDatesToEpochInteger(v));
+	}
+	if (isObject(obj)) {
+		return transform(obj, (result, value, key) => {
+			result[key] = transformLocalDatesToEpochInteger(value); // eslint-disable-line no-param-reassign
+		}, {});
+	}
+	return obj;
+}
+
+/**
+ * Transforms an epoch integer into a LocalDate
+ * @param value
+ * @returns {JSJoda.LocalDate}
+ */
+export function transformEpochIntegerToLocalDate(value) {
+	return LocalDate.ofEpochDay(value);
+}
+
+/**
+ * Transforms anything that has epoch integers into LocalDates. You need to specify which path's are EpochIntegers in paths.
+ * @param obj
+ * @param paths
+ * @returns {*}
+ */
+export function mapEpochIntegerToLocalDates(obj, paths, curPath = []) {
+	if (isInteger(obj)) {
+		if (indexOf(paths, curPath.join('.')) >= 0) {
+			return transformEpochIntegerToLocalDate(obj);
+		}
+		return obj;
+	}
+	if (isArray(obj)) {
+		return map(obj, v => mapEpochIntegerToLocalDates(v, paths, [...curPath]));
+	}
+	if (isObject(obj)) {
+		return transform(obj, (result, value, key) => {
+			result[key] = mapEpochIntegerToLocalDates(value, paths, [...curPath, key]); // eslint-disable-line no-param-reassign
+		}, {});
+	}
+	return obj;
+}
+
 
 /**
  * Formats a date to a predefined style

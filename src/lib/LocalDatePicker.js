@@ -1,5 +1,3 @@
-// @flow
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import DTPicker from 'react-widgets/lib/DateTimePicker';
@@ -36,15 +34,15 @@ export default class LocalDatePicker extends Component {
 		onCurrentDateChange: PropTypes.func,
 	};
 
-	handleChange = (date: Date) => {
+	handleChange = date => {
 		if (this.props.onChange) this.props.onChange(date ? transformDateToLocalDate(date) : null);
 	}
 
-	handleSelect = (date: Date) => {
+	handleSelect = date => {
 		if (this.props.onSelect) this.props.onSelect(date ? transformDateToLocalDate(date) : null);
 	}
 
-	handleCurrentDateChange = (date: Date) => {
+	handleCurrentDateChange = date => {
 		if (this.props.onCurrentDateChange) this.props.onCurrentDateChange(date ? transformDateToLocalDate(date) : null);
 	}
 
