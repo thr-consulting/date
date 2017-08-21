@@ -1,5 +1,3 @@
-// @flow
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -41,7 +39,7 @@ export default class MonthSelect extends Component {
 		year: new Date().getFullYear(),
 	};
 
-	handleChange = (e: Object, value: Object) => {
+	handleChange = (e, value) => {
 		d('Month changed to:', value.value, e);
 		if (value !== '') {
 			this.props.onChange(moment({

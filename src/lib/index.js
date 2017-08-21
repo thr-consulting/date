@@ -10,6 +10,9 @@ import {
 	transformLocalDateToDate,
 	transformLocalDateToMoment,
 	transformMomentToLocalDate,
+	transformLocalDatesToEpochInteger,
+	transformEpochIntegerToLocalDate,
+	mapEpochIntegerToLocalDates,
 	dateInit,
 } from './util';
 
@@ -26,4 +29,7 @@ export {
 	transformLocalDateToDate,
 	transformLocalDateToMoment,
 	transformMomentToLocalDate,
+	transformLocalDatesToEpochInteger,
+	transformEpochIntegerToLocalDate,
+	mapEpochIntegerToLocalDates,
 };
