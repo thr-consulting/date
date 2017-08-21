@@ -43,6 +43,15 @@
 <dt><a href="#transformDatesToMoment">transformDatesToMoment(obj)</a> ⇒ <code>moment</code> | <code>Array.&lt;moment&gt;</code></dt>
 <dd><p>Transforms a date or array of dates to moments</p>
 </dd>
+<dt><a href="#transformLocalDatesToEpochInteger">transformLocalDatesToEpochInteger(obj)</a> ⇒ <code>*</code></dt>
+<dd><p>Transforms anything that is a LocalDate into epoch integer&#39;s. Iterates over arrays and object keys.</p>
+</dd>
+<dt><a href="#transformEpochIntegerToLocalDate">transformEpochIntegerToLocalDate(value)</a> ⇒ <code>JSJoda.LocalDate</code></dt>
+<dd><p>Transforms an epoch integer into a LocalDate</p>
+</dd>
+<dt><a href="#mapEpochIntegerToLocalDates">mapEpochIntegerToLocalDates(obj, paths)</a> ⇒ <code>*</code></dt>
+<dd><p>Transforms anything that has epoch integers into LocalDates. You need to specify which path&#39;s are EpochIntegers in paths.</p>
+</dd>
 <dt><a href="#formatDate">formatDate(obj, [type], [time], [date], [format])</a> ⇒ <code>string</code></dt>
 <dd><p>Formats a date to a predefined style</p>
 </dd>
@@ -66,6 +75,15 @@
 </dd>
 <dt><a href="#transformDatesToMoment">transformDatesToMoment(obj)</a> ⇒ <code>moment</code> | <code>Array.&lt;moment&gt;</code></dt>
 <dd><p>Transforms a date or array of dates to moments</p>
+</dd>
+<dt><a href="#transformLocalDatesToEpochInteger">transformLocalDatesToEpochInteger(obj)</a> ⇒ <code>*</code></dt>
+<dd><p>Transforms anything that is a LocalDate into epoch integer&#39;s. Iterates over arrays and object keys.</p>
+</dd>
+<dt><a href="#transformEpochIntegerToLocalDate">transformEpochIntegerToLocalDate(value)</a> ⇒ <code>JSJoda.LocalDate</code></dt>
+<dd><p>Transforms an epoch integer into a LocalDate</p>
+</dd>
+<dt><a href="#mapEpochIntegerToLocalDates">mapEpochIntegerToLocalDates(obj, paths)</a> ⇒ <code>*</code></dt>
+<dd><p>Transforms anything that has epoch integers into LocalDates. You need to specify which path&#39;s are EpochIntegers in paths.</p>
 </dd>
 <dt><a href="#formatDate">formatDate(obj, [type], [time], [date], [format])</a> ⇒ <code>string</code></dt>
 <dd><p>Formats a date to a predefined style</p>
@@ -376,6 +394,40 @@ Transforms a date or array of dates to moments
 | --- | --- | --- |
 | obj | <code>date</code> \| <code>Array.&lt;date&gt;</code> | Date or array of Dates |
 
+<a name="transformLocalDatesToEpochInteger"></a>
+
+## transformLocalDatesToEpochInteger(obj) ⇒ <code>\*</code>
+Transforms anything that is a LocalDate into epoch integer's. Iterates over arrays and object keys.
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| obj | 
+
+<a name="transformEpochIntegerToLocalDate"></a>
+
+## transformEpochIntegerToLocalDate(value) ⇒ <code>JSJoda.LocalDate</code>
+Transforms an epoch integer into a LocalDate
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| value | 
+
+<a name="mapEpochIntegerToLocalDates"></a>
+
+## mapEpochIntegerToLocalDates(obj, paths) ⇒ <code>\*</code>
+Transforms anything that has epoch integers into LocalDates. You need to specify which path's are EpochIntegers in paths.
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| obj | 
+| paths | 
+
 <a name="formatDate"></a>
 
 ## formatDate(obj, [type], [time], [date], [format]) ⇒ <code>string</code>
@@ -465,6 +517,40 @@ Transforms a date or array of dates to moments
 | Param | Type | Description |
 | --- | --- | --- |
 | obj | <code>date</code> \| <code>Array.&lt;date&gt;</code> | Date or array of Dates |
+
+<a name="transformLocalDatesToEpochInteger"></a>
+
+## transformLocalDatesToEpochInteger(obj) ⇒ <code>\*</code>
+Transforms anything that is a LocalDate into epoch integer's. Iterates over arrays and object keys.
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| obj | 
+
+<a name="transformEpochIntegerToLocalDate"></a>
+
+## transformEpochIntegerToLocalDate(value) ⇒ <code>JSJoda.LocalDate</code>
+Transforms an epoch integer into a LocalDate
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| value | 
+
+<a name="mapEpochIntegerToLocalDates"></a>
+
+## mapEpochIntegerToLocalDates(obj, paths) ⇒ <code>\*</code>
+Transforms anything that has epoch integers into LocalDates. You need to specify which path's are EpochIntegers in paths.
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| obj | 
+| paths | 
 
 <a name="formatDate"></a>
 
