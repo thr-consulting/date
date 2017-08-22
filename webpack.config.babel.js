@@ -5,7 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 const root = path.resolve(__dirname);
 
 module.exports = {
-	entry: './src/lib/index.js',
+	entry: './lib/index.js',
 	target: 'node',
 	devtool: 'source-map',
 	externals: [nodeExternals()],
