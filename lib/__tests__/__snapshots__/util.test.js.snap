@@ -40,6 +40,16 @@ Object {
 }
 `;
 
+exports[`Date transforms should transform objects to LocalDates 1`] = `
+Object {
+  "field1": "2017-08-22",
+  "field2": Array [
+    "2005-08-05",
+    "1970-01-02",
+  ],
+}
+`;
+
 exports[`Formatting should format with defaults 1`] = `"6/23/2017"`;
 
 exports[`Formatting should format with options 1`] = `"6/23/2017 6:00 am"`;
