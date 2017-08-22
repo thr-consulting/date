@@ -6,16 +6,18 @@
   "scripts": {
     "build": "webpack --config webpack.config.babel.js",
     "demo": "react-scripts start",
-    "prepare": "npm run build",
+    "prepare": "npm run build && npm run docs:md",
     "test": "node --harmony_proxies node_modules/.bin/jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "flow": "flow",
     "lint": "eslint *.js src/lib",
     "docs": "jsdoc -c jsdoc.json",
-    "docs:md": "jsdoc2md -c jsdoc.json -f src/lib/*.js > docs/README.md",
+    "docs:md": "jsdoc2md -c jsdoc.json -f lib/*.js > docs/README.md",
     "docs:explain": "jsdoc -X -c jsdoc.json",
-    "validate": "npm ls"
+    "validate": "npm ls",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "snapshotSerializers": [
@@ -39,6 +41,9 @@
   "author": "Mike Kornelson <mike@durbn.net>",
   "license": "MIT",
   "devDependencies": {
+    "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addon-knobs": "^3.2.6",
+    "@storybook/react": "^3.2.5",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
@@ -70,7 +75,6 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-formal": "^0.25.4",
-    "react-scripts": "1.0.10",
     "react-test-renderer": "^15.6.1",
     "semantic-ui-react": "^0.71.0",
     "style-loader": "^0.18.2",
@@ -84,6 +88,7 @@
     "semantic-ui-react": "^0.71.0"
   },
   "dependencies": {
+    "@storybook/addon-storyshots": "^3.2.6",
     "@thx/controls": "^1.0.0",
     "debug": "^3.0.0",
     "js-joda": "^1.5.4",
@@ -97,14 +102,12 @@
   },
   "greenkeeper": {
     "ignore": [
-      "eslint-plugin-jsx-a11y",
-      "react-scripts"
+      "eslint-plugin-jsx-a11y"
     ]
   },
   "pre-commit": [
     "lint",
     "flow",
-    "test",
-    "docs:md"
+    "test"
   ]
 }
