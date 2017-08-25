@@ -52,6 +52,9 @@
 <dt><a href="#mapEpochIntegerToLocalDates">mapEpochIntegerToLocalDates(obj, paths)</a> ⇒ <code>*</code></dt>
 <dd><p>Transforms anything that has epoch integers into LocalDates. You need to specify which path&#39;s are EpochIntegers in paths.</p>
 </dd>
+<dt><a href="#transformObjectsToLocalDates">transformObjectsToLocalDates(obj)</a> ⇒ <code>*</code></dt>
+<dd><p>Transforms anything that has LocalDate style objects into LocalDates.</p>
+</dd>
 <dt><a href="#formatDate">formatDate(obj, [type], [time], [date], [format])</a> ⇒ <code>string</code></dt>
 <dd><p>Formats a date to a predefined style</p>
 </dd>
@@ -84,6 +87,9 @@
 </dd>
 <dt><a href="#mapEpochIntegerToLocalDates">mapEpochIntegerToLocalDates(obj, paths)</a> ⇒ <code>*</code></dt>
 <dd><p>Transforms anything that has epoch integers into LocalDates. You need to specify which path&#39;s are EpochIntegers in paths.</p>
+</dd>
+<dt><a href="#transformObjectsToLocalDates">transformObjectsToLocalDates(obj)</a> ⇒ <code>*</code></dt>
+<dd><p>Transforms anything that has LocalDate style objects into LocalDates.</p>
 </dd>
 <dt><a href="#formatDate">formatDate(obj, [type], [time], [date], [format])</a> ⇒ <code>string</code></dt>
 <dd><p>Formats a date to a predefined style</p>
@@ -428,6 +434,17 @@ Transforms anything that has epoch integers into LocalDates. You need to specify
 | obj | 
 | paths | 
 
+<a name="transformObjectsToLocalDates"></a>
+
+## transformObjectsToLocalDates(obj) ⇒ <code>\*</code>
+Transforms anything that has LocalDate style objects into LocalDates.
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| obj | 
+
 <a name="formatDate"></a>
 
 ## formatDate(obj, [type], [time], [date], [format]) ⇒ <code>string</code>
@@ -551,6 +568,17 @@ Transforms anything that has epoch integers into LocalDates. You need to specify
 | --- |
 | obj | 
 | paths | 
+
+<a name="transformObjectsToLocalDates"></a>
+
+## transformObjectsToLocalDates(obj) ⇒ <code>\*</code>
+Transforms anything that has LocalDate style objects into LocalDates.
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| obj | 
 
 <a name="formatDate"></a>
 
