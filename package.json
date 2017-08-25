@@ -1,6 +1,6 @@
 {
   "name": "@thx/date",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Date controls and utils",
   "main": "dist/index.js",
   "scripts": {
