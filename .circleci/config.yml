@@ -25,8 +25,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn test
+      - run: yarn test:coverage
       - run: yarn lint
       - run: yarn flow
+
+      - store_artifacts:
+          path: ~/repo/coverage/coverage.svg
+          destination: coverage
   publish:
     docker:
       - image: circleci/node:6
