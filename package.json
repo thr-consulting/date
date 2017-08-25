@@ -90,7 +90,7 @@
     "semantic-ui-react": "^0.71.0"
   },
   "dependencies": {
-    "@thx/controls": "^1.0.0",
+    "@thx/controls": "^1.0.1",
     "debug": "^3.0.0",
     "js-joda": "^1.5.4",
     "lodash": "^4.17.4",
