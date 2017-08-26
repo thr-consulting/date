@@ -98,7 +98,7 @@
     "prop-types": "^15.5.10",
     "react-widgets": "^4.0.0-rc.16",
     "react-widgets-moment": "^4.0.0-rc.15",
-    "yup": "^0.21.3"
+    "yup": "^0.22.0"
   },
   "greenkeeper": {
     "ignore": [
