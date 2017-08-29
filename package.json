@@ -1,6 +1,6 @@
 {
   "name": "@thx/date",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Date controls and utils",
   "main": "dist/index.js",
   "scripts": {
@@ -87,17 +87,17 @@
   "peerDependencies": {
     "react": "^15.5.0",
     "react-dom": "^15.6.0",
-    "semantic-ui-react": "^0.71.0"
+    "semantic-ui-react": "^0.72.0"
   },
   "dependencies": {
-    "@thx/controls": "^1.0.1",
+    "@thx/controls": "^1.0.2",
     "debug": "^3.0.0",
     "js-joda": "^1.5.4",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react-widgets": "^4.0.0-rc.16",
-    "react-widgets-moment": "^4.0.0-rc.15",
+    "react-widgets-moment": "^4.0.0-rc.16",
     "yup": "^0.22.0"
   },
   "greenkeeper": {
