@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import LocalMonthSelect from '../LocalMonthSelect';
+import LocalMonthSelect from '../src/LocalMonthSelect';
 
 describe('LocalMonthSelect', () => {
 	it('should render without throwing an error', () => {

@@ -1,11 +1,11 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import LocalDatePicker from '../LocalDatePicker';
+import DateTimePicker from '../src/DateTimePicker';
 
-describe('LocalDatePicker', () => {
+describe('DateTimePicker', () => {
 	it('should render without throwing an error', () => {
 		expect(shallow(
-			<LocalDatePicker/>)).toMatchSnapshot();
+			<DateTimePicker/>)).toMatchSnapshot();
 	});
 
 	// it('should respond to changes', () => {

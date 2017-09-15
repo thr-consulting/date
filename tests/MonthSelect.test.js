@@ -1,11 +1,11 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import DateTimePicker from '../DateTimePicker';
+import MonthSelect from '../src/MonthSelect';
 
-describe('DateTimePicker', () => {
+describe('MonthSelect', () => {
 	it('should render without throwing an error', () => {
 		expect(shallow(
-			<DateTimePicker/>)).toMatchSnapshot();
+			<MonthSelect/>)).toMatchSnapshot();
 	});
 
 	// it('should respond to changes', () => {

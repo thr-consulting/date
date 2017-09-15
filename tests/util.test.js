@@ -14,7 +14,7 @@ import {
 	mapEpochIntegerToLocalDates,
 	transformObjectsToLocalDates,
 	formatDate,
-} from '../util';
+} from '../src/util';
 
 jest.mock('react-widgets-moment');
 

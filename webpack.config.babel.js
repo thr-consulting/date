@@ -1,43 +1,18 @@
 import path from 'path';
-import nodeExternals from 'webpack-node-externals';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const root = path.resolve(__dirname);
-
 module.exports = {
-	entry: './lib/index.js',
-	target: 'node',
-	devtool: 'source-map',
-	externals: [nodeExternals()],
+	entry: {
+		dateTimePicker: './src/dateTimePicker.css',
+	},
 	output: {
-		path: path.resolve(root, 'dist'),
-		filename: 'index.js',
-		library: 'date',
+		path: path.resolve(__dirname, 'dist'),
+		filename: '[name].js',
+		library: 'ReactWidgets',
 		libraryTarget: 'umd',
 	},
 	module: {
 		rules: [
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: [
-					{
-						loader: 'babel-loader',
-						options: {
-							babelrc: false,
-							presets: [
-								['es2015', {loose: true, modules: false}],
-								'stage-1',
-								'react',
-								'flow',
-							],
-							plugins: [
-								'flow-react-proptypes',
-							],
-						},
-					},
-				],
-			},
 			{
 				test: /\.css$/,
 				use: ExtractTextPlugin.extract({
@@ -53,15 +28,9 @@ module.exports = {
 	},
 	plugins: [
 		new ExtractTextPlugin({
-			filename: 'index.css',
+			filename: '[name].css',
 			disable: false,
 			allChunks: true,
 		}),
-		// new webpack.optimize.UglifyJsPlugin({
-		// 	compress: {
-		// 		warnings: false,
-		// 	},
-		// 	sourceMap: true,
-		// }),
 	],
 };
